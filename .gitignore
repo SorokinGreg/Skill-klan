@@ -1,0 +1,47 @@
+# === Build artifacts ===
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+.kotlin
+
+# === IntelliJ IDEA ===
+.idea/
+.idea/modules.xml
+.idea/jarRepositories.xml
+.idea/compiler.xml
+.idea/libraries/
+*.iws
+*.iml
+*.ipr
+out/
+
+# === Eclipse ===
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# === NetBeans ===
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# === VS Code ===
+.vscode/
+
+# === Mac OS ===
+.DS_Store
+
+# === Personal training files ===
+src/main/java/skillklan/Example.java
+src/main/java/skillklan/Practice.java
+src/main/java/skillklan/Practice_v2.java
