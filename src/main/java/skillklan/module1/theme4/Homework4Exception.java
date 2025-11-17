@@ -10,23 +10,16 @@ public class Homework4Exception {
         System.out.print("Введіть дільник: ");
         int b = in.nextInt();
         zero(a, b);// TODO: Виклик методу zero — ок, але добре передавати результат у змінну
-        System.out.println("Кінець программи");
+//        int result = zero(a, b);
     }
 
-    static void zero(int a, int b) {
+    public static void zero(int a, int b) {
         try {
-            int result = a / b;// TODO: Цей код правильний, але краще не створювати змінну result — можна одразу виводити
-            System.out.println("Результат: " + result);
-        } catch (Exception с) {
-            // TODO: Ловити Exception — занадто загально.
-            // маємо ловити саме ArithmeticException — так правильно!
+            System.out.println("Результат: " + a / b);
+        } catch (ArithmeticException с) {
             System.out.println("На нуль ділити поки що не можна");
+        } finally {
+            System.out.println("Операція завершена");
         }
-
-        // TODO: Додати finally — щоб попрактикувати завершальні блоки.
-        // Наприклад:
-        // finally {
-        //     System.out.println("Обробка завершена");
-        // }
     }
 }
