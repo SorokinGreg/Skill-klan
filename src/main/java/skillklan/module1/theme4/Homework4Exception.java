@@ -12,17 +12,6 @@ public class Homework4Exception {
         zero(a, b);
     }
 
-//    public static void zero(int a, int b) {
-//        try {
-//            System.out.println("Результат: " + a / b);
-//        } catch (ArithmeticException с) {
-//            System.out.println("На нуль ділити поки що не можна");
-//        } finally {
-//            System.out.println("Операція завершена");
-//        }
-//    }
-//}
-
     public static Integer zero(int a, int b) {
         try {
             int result = a / b;
