@@ -19,38 +19,35 @@ public class LoginTest {
             System.out.println("Заголовок сторінки: " + title);
         } else {
             System.out.println("Заголовок сторінки невірний");
-        }
+
 
 //NOTE ДЗ10:
 
-//        List<WebElement> searchId = driver.findElements(By.id("user-name"));
-//        if (searchId.size() > 0) {
-//            System.out.println("Такий ID існує");
-//        } else {
-//            System.out.println("Такого ID немає");
-//        }
-//        List<WebElement> searchClass = driver.findElements(By.className("submit-button"));
-//        if (searchClass.size() > 0) {
-//            System.out.println("Такий ClassName існує");
-//        } else {
-//            System.out.println("Такого ClassName немає");
-//        }
-//        List<WebElement> searchXpath = driver.findElements(By.xpath("//div[@class='login_password']"));
-//        if (searchXpath.size() > 0) {
-//            System.out.println("Такий XPath існує");
-//        } else {
-//            System.out.println("Такого XPath немає");
-//        }
-//        List<WebElement> searchCss = driver.findElements(By.cssSelector("input[name='user-name']"));
-//        if (searchCss.size() > 0) {
-//            System.out.println("Такий CSS Selector існує");
-//        } else {
-//            System.out.println("Такого CSS Selector немає");
-//        }
-
-
-//        List<WebElement> serchId = driver.findElements(By.cssSelector("[id]"));
-//        System.out.println("Кількість id на сторінці: " + serchId.size());
-        driver.quit();
+            List<WebElement> searchId = driver.findElements(By.id("user-name"));
+            if (searchId.size() > 0) {
+                System.out.println("Такий ID існує");
+            } else {
+                System.out.println("Такого ID немає");
+            }
+            List<WebElement> searchClass = driver.findElements(By.className("submit-button"));
+            if (searchClass.size() > 0) {
+                System.out.println("Такий ClassName існує");
+            } else {
+                System.out.println("Такого ClassName немає");
+            }
+            List<WebElement> searchXpath = driver.findElements(By.xpath("//div[@class='login_password']"));
+            if (searchXpath.size() > 0) {
+                System.out.println("Такий XPath існує");
+            } else {
+                System.out.println("Такого XPath немає");
+            }
+            List<WebElement> searchCss = driver.findElements(By.cssSelector("input[name='user-name']"));
+            if (searchCss.size() > 0) {
+                System.out.println("Такий CSS Selector існує");
+            } else {
+                System.out.println("Такого CSS Selector немає");
+            }
+            driver.quit();
+        }
     }
 }
