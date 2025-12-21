@@ -11,10 +11,15 @@ public class LoginTest {
 
     public static void main(String[] args) {
         WebDriver driver = new ChromeDriver();
+        // TODO(1): Обгорни основну логіку в try/finally.
+        // Причина: якщо код впаде з помилкою — браузер не закриється.
+        // try { ... } finally { driver.quit(); }
         driver.get("https://www.saucedemo.com");
         driver.manage().window().maximize();
 
         String title = driver.getTitle();
+        // TODO(2): В завданні написано "містить слово Swag Labs".
+        // Тобто краще: title.contains("Swag Labs"), а не equals(), заодно і розбереш що таке contains
         if (title.equals("Swag Labs")) {
             System.out.println("Заголовок сторінки: " + title);
         } else {
@@ -47,6 +52,8 @@ public class LoginTest {
             } else {
                 System.out.println("Такого CSS Selector немає");
             }
+
+//            TODO (3): про це написав вище
             driver.quit();
         }
     }
