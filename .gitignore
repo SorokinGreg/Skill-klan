@@ -45,3 +45,4 @@ build/
 src/main/java/skillklan/Example.java
 src/main/java/skillklan/Practice.java
 src/main/java/skillklan/Practice_v2.java
+src/test/java/skillklan/Practice_test.java
