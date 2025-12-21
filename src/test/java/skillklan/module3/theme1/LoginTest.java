@@ -15,11 +15,11 @@ public class LoginTest {
         driver.manage().window().maximize();
 
         String title = driver.getTitle();
-        if (title.equals("Swag Lab")) {
+        if (title.equals("Swag Labs")) {
             System.out.println("Заголовок сторінки: " + title);
         } else {
             System.out.println("Заголовок сторінки невірний");
-
+        }
 
 //NOTE ДЗ10:
 
@@ -50,4 +50,3 @@ public class LoginTest {
             driver.quit();
         }
     }
-}
