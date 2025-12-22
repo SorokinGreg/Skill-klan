@@ -11,20 +11,16 @@ public class LoginTest {
 
     public static void main(String[] args) {
         WebDriver driver = new ChromeDriver();
-        // TODO(1): Обгорни основну логіку в try/finally.
-        // Причина: якщо код впаде з помилкою — браузер не закриється.
-        // try { ... } finally { driver.quit(); }
-        driver.get("https://www.saucedemo.com");
-        driver.manage().window().maximize();
+        try {
+            driver.get("https://www.saucedemo.com");
+            driver.manage().window().maximize();
 
-        String title = driver.getTitle();
-        // TODO(2): В завданні написано "містить слово Swag Labs".
-        // Тобто краще: title.contains("Swag Labs"), а не equals(), заодно і розбереш що таке contains
-        if (title.equals("Swag Labs")) {
-            System.out.println("Заголовок сторінки: " + title);
-        } else {
-            System.out.println("Заголовок сторінки невірний");
-        }
+            String title = driver.getTitle();
+            if (title.contains("Swag Labs")) {//NOTE: в такому випадку навіть якщо однин символ є в заголовку то буде true. вірно?
+                System.out.println("Заголовок сторінки містить: " + title);
+            } else {
+                System.out.println("Заголовок сторінки невірний");
+            }
 
 //NOTE ДЗ10:
 
@@ -52,8 +48,8 @@ public class LoginTest {
             } else {
                 System.out.println("Такого CSS Selector немає");
             }
-
-//            TODO (3): про це написав вище
+        } finally {//NOTE: так finally виконується завжди ж, тобто драйвер закриється в любому випадку. Вірно?
             driver.quit();
         }
     }
+}
