@@ -6,11 +6,15 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
-    WebDriver driver;
+    WebDriver driver;// TODO(1): зроби driver private для інкапсуляції
+    // TODO(2): перейменуй елементи на читабельні назви:
+    // usernameInput, passwordInput, loginButton
     @FindBy(id = "user-name")
     private WebElement loginFind;
+
     @FindBy(id = "password")
     private WebElement passFind;
+
     @FindBy(id = "login-button")
     private WebElement buttonFind;
 
@@ -23,7 +27,7 @@ public class LoginPage {
     public void goToUrl() {
         driver.get("https://www.saucedemo.com");
     }
-
+    // TODO(3): методи краще назвати enterUsername / enterPassword / clickLogin
     public void setLogin(String login) {
         loginFind.sendKeys(login);
     }

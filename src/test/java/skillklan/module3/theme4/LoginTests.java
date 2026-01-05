@@ -24,7 +24,7 @@ public class LoginTests {
     public void off() {
 //        driver.quit();
     }
-
+    // TODO(1): Тут я б змінив назву на loginData
     @DataProvider(name = "loginAndPass")
     public Object[][] loginAndPass() {
         return new Object[][]{
@@ -40,3 +40,5 @@ public class LoginTests {
         loginPage.buttonClick();
     }
 }
+
+// TODO(2): і найголовніше !!! де асерти ? наразі це у тебе просто клікалка, а не тест. Ти ніого не перевіряєш
