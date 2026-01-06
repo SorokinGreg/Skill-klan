@@ -1,11 +1,13 @@
 package skillklan.module3.theme4;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import skillklan.module3.theme4.pages.LoginPage;
 
 public class LoginTests {
@@ -22,23 +24,25 @@ public class LoginTests {
 
     @AfterMethod
     public void off() {
-//        driver.quit();
+        driver.quit();
     }
-    // TODO(1): Тут я б змінив назву на loginData
-    @DataProvider(name = "loginAndPass")
-    public Object[][] loginAndPass() {
+
+    @DataProvider(name = "loginData")
+    public Object[][] loginData() {
         return new Object[][]{
                 {"standard_user", "secret_sauce"},
                 {"problem_user", "secret_sauce"}
         };
     }
 
-    @Test(dataProvider = "loginAndPass")
+    @Test(dataProvider = "loginData")
     public void test(String loginName, String passName) {
-        loginPage.setLogin(loginName);
-        loginPage.setPass(passName);
-        loginPage.buttonClick();
+        loginPage.enterUsername(loginName);
+        loginPage.enterPassword(passName);
+        loginPage.clickLogin();
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertTrue(driver.findElements(By.id("contents_wrapper")).size() > 0, "not logIN");
+        softAssert.assertAll();
+        System.out.println("bingo");
     }
 }
-
-// TODO(2): і найголовніше !!! де асерти ? наразі це у тебе просто клікалка, а не тест. Ти ніого не перевіряєш
