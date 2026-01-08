@@ -20,23 +20,26 @@ public class SearchResultsPage {
         PageFactory.initElements(driver, this);
     }
 
-    public void wordInFirstElement(String word) {
+    public SearchResultsPage wordInFirstElement(String word) {
         WebElement firstElement = elements.getFirst();
         String textInElement = firstElement.findElement(By.cssSelector(".product-card__title")).getText();
         Assert.assertTrue(textInElement.contains(word), "Перший знайдений товар, не має слово \"" + word + "\"");
         System.out.println("Перший знайдений товар, має слово \"" + word + "\"");
+        return this;
     }
 
-    public void wordInSecondElement(String word) {
+    public SearchResultsPage wordInSecondElement(String word) {
         WebElement secondElement = elements.get(1);
         String textInElement = secondElement.findElement(By.cssSelector(".product-card__title")).getText();
         Assert.assertTrue(textInElement.contains(word), "Другий знайдений товар, не має слово \"" + word + "\"");
         System.out.println("Другий знайдений товар, має слово \"" + word + "\"");
+        return this;
     }
 
-    public void clickFirstElement() {
+    public SearchResultsPage clickFirstElement() {
         WebElement firstElement = elements.getFirst();
         firstElement.click();
+        return this;
     }
 
     public String getTextFirstElement() {

@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import skillklan.module3.theme5.pages.AppleAirPodsPro3Page;
+import skillklan.module3.theme5.pages.DeliveryAndPaymentPage;
 import skillklan.module3.theme5.pages.HomePage;
 import org.testng.annotations.Test;
 import skillklan.module3.theme5.pages.SearchResultsPage;
@@ -31,15 +32,16 @@ public class TestAllo {
 
     @Test
     public void testLogoIs() {
-        homePage.logoIs();
+        homePage.logoIsDisplayed();
     }
 
     @Test
     public void testInputSearchIs() {
         String word = "Фен";
-        homePage.inputSearchIs();
-        homePage.enterInInputSearch(word);
-        homePage.searchButtonClick();
+        homePage
+                .inputSearchIsDisplayed()
+                .enterInInputSearch(word)
+                .searchButtonClick();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         SearchResultsPage searchResultsPage = new SearchResultsPage(driver);
         searchResultsPage.wordInFirstElement(word);
@@ -48,22 +50,37 @@ public class TestAllo {
     @Test
     public void airPods() {
         String word = "AirPods 3";
-        homePage.logoIs();
-        homePage.inputSearchIs();
-        homePage.enterInInputSearch(word);
-        homePage.searchButtonClick();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        homePage
+                .logoIsDisplayed()
+                .inputSearchIsDisplayed()
+                .enterInInputSearch(word)
+                .searchButtonClick();
 
         SearchResultsPage searchResultsPage = new SearchResultsPage(driver);
-//        searchResultsPage.wordInFirstElement(word);
-        searchResultsPage.wordInSecondElement(word);
         String expectedTitle = searchResultsPage.getTextFirstElement();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        searchResultsPage.clickFirstElement();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        searchResultsPage
+                .wordInFirstElement(word)
+                .wordInSecondElement(word)
+                .clickFirstElement();
+
         AppleAirPodsPro3Page appleAirPodsPro3Page = new AppleAirPodsPro3Page(driver);
         String actualTitle = appleAirPodsPro3Page.titleTrue();
         Assert.assertEquals(actualTitle, expectedTitle, "Очікувана назва товару: " + expectedTitle + "Актуальна назва товару: " + actualTitle);
         System.out.println("Очікувана назва товару відповідає актуальній назві товару");
+    }
+
+    @Test
+    public void shouldOpenDeliveryAndPaymentFromCustomersMenu() {
+        homePage
+                .buttonBuyersIsDisplayed()
+                .buttonBuyersClick()
+                .dropDownMenuIsDisplayed()
+                .buttonDeliveryAndPaymentIsDisplayed()
+                .buttonDeliveryAndPaymentClick();
+
+        DeliveryAndPaymentPage deliveryAndPaymentPage = new DeliveryAndPaymentPage(driver);
+        deliveryAndPaymentPage
+                .deliveryAndPaymentTitleIsTrue()
+                .howToPlaceOrderIsDisplayed();
     }
 }
